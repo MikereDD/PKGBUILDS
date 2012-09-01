@@ -1,0 +1,24 @@
+# Maintainer: Mike Redd <mredd -at- zerotuezero dot com>
+
+pkgname=fortune-mod-archer
+_pkgname=archer
+pkgver=0.2
+pkgrel=3
+pkgdesc="Archer FXNetwork fortune cookie file"
+url="http://dl.dropbox.com"
+arch=('any')
+license=('unknown')
+depends=('fortune-mod')
+groups=('fortune-mods')
+source=($url/u/14015956/fortunemods/archer/$pkgname-$pkgver.tar.xz)
+md5sums=('fe67075b96184262ab3634a9cb2b93f6')
+
+build() {
+  cd "$srcdir"
+  strfile $_pkgname $_pkgname.dat
+}
+
+package () {
+  install -D -m644 $_pkgname $pkgdir/usr/share/fortune/$_pkgname
+  install -D -m644 $_pkgname.dat $pkgdir/usr/share/fortune/$_pkgname.dat
+}

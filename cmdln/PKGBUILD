@@ -1,5 +1,4 @@
-# Maintainer: Mike Redd <mredd@0tue0.com>
-# Contributor: Mike Redd <mredd@0tue0.com>
+# Maintainer: Mike Redd <mredd -at- zerotuezero dot com>
 
 pkgname=cmdln
 _svntrunk=http://$pkgname.googlecode.com/svn/trunk/
