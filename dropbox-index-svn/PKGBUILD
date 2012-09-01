@@ -1,5 +1,5 @@
-# Maintainer: Mike Redd <mredd@0tue0.com>
-# Contributor: Mike Redd <mredd@0tue0.com>
+# Maintainer: Mike Redd <mredd -at- zerotuezero dot com>
+
 
 pkgname=dropbox-index-svn
 _pkgname=dropbox-index
