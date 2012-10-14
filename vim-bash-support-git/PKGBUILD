@@ -10,6 +10,9 @@ depends=('vim' 'git' 'bash')
 makedepends=('git')
 optdepends=('bashdb')
 install='vimdoc.install'
+conflicts=('vim-bash-support')
+replaces=('vim-bash-support')
+provides=('vim-bash-support')
 source=()
 md5sums=()
 

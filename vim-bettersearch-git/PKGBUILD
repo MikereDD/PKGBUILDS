@@ -12,6 +12,9 @@ makedepends=('git')
 optdepends=()
 groups=('vim-plugins')
 install='vimdoc.install'
+conflicts=('vim-bettersearch')
+replaces=('vim-bettersearch')
+provides=('vim-bettersearch')
 source=()
 md5sums=()
 
