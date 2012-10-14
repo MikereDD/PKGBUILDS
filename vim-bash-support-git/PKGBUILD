@@ -5,7 +5,7 @@ pkgrel=1
 pkgdesc="BASH IDE -- Write and run BASH-scripts using menus and hotkeys."
 arch=('any')
 url="http://www.vim.org/scripts/script.php?script_id=365"
-license=('unknown')
+license=('custom:vim')
 depends=('vim' 'git' 'bash')
 makedepends=('git')
 optdepends=('bashdb')
