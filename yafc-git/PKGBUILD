@@ -1,0 +1,44 @@
+# Contributor: Mike Redd <mredd -at- zerotuezero dot com>
+
+pkgname=yafc-git
+_pkgname=yafc
+pkgver=20130203
+pkgrel=1
+pkgdesc="Yafc is a command-line Linux FTP client, with a bunch of useful features which make it easier to use than ftp or sftp."
+url='http://www.yafc-ftp.com'
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=()
+makedepends=('git')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+md5sums=()
+
+_gitname='yafc'
+_gitroot='git://github.com/sebastinas/yafc.git'
+
+build() {
+        msg "Connecting to Git server..."
+        if [ -d "${srcdir}/${_pkgname}" ]; then
+                cd "${srcdir}/${_pkgname}" && git pull origin || return 1
+        else
+                git clone "$_gitroot" || return 1
+        fi
+        msg  "Git checkout done or server timeout"
+        cd "${srcdir}/${_pkgname}"
+        export CFLAGS="$CFLAGS -D_FILE_OFFSET_BITS=64"
+        sed -i -e '44s/_err//' -e '75d' 'lib/gssapi.c'
+        ./autogen.sh --prefix=/usr \
+              --infodir=/usr/share/info \
+              --mandir=/usr/share/man \
+              --with-readline-lib=/lib || return 1
+                make || return 1
+}
+
+package() {
+          cd "${srcdir}/${_pkgname}"
+              make DESTDIR=$pkgdir install || return 1
+}
