@@ -2,7 +2,7 @@
 
 pkgname=vim-badwolf-git
 pkgver=20130203
-pkgrel=1
+pkgrel=1.1
 pkgdesc="A color scheme for Vim, pieced together by Steve Losh."
 arch=('any')
 url="http://stevelosh.com/projects/badwolf/"
@@ -40,7 +40,7 @@ package() {
     cd "$srcdir/$_gitname/"
     install -Dm644 colors/${_gitname}.vim $pkgdir/usr/share/vim/vimfiles/colors/${_gitname}.vim
     install -Dm644 contrib/${_gitname}.muttrc $pkgdir/usr/share/vim/vimfiles/contrib/${_gitname}.muttrc
-    install -Dm644 LICENSE.markdown ${pkgdir}/usr/share/licenses/${pkgname}/license.txt
+    install -Dm644 LICENSE.markdown ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }
 
 # vim:set ts=2 sw=2 et:
