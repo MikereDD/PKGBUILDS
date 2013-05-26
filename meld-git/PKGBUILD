@@ -1,0 +1,59 @@
+# Contributor: Mike Redd <mredd -at- zerotuezero dot com>
+# Maintainer: Mike Redd <mredd -at- zerotuezero dot com>
+# based off the pkgbuild by:
+#   Douglas Soares de Andrade and Daniel J Griffiths
+#   from Arch Linux's extra repo
+
+pkgname=meld-git
+pkgver=20130525
+pkgrel=1
+pkgdesc="Visual diff and merge tool"
+arch=('x86' 'x86_64')
+url="http://meldmerge.org/"
+license=('GPL')
+depends=('pygtk' 'hicolor-icon-theme' 'desktop-file-utils')
+makedepends=('git' 'intltool' 'gnome-doc-utils')
+optdepends=('pygtksourceview2: syntax highlighting'
+            'python2-dbus: open a new tab in an already running instance'
+            'python2-gconf: gnome integration')
+install=meld.install
+conflicts=('meld')
+replaces=('meld')
+provides=('meld')
+source=()
+md5sums=()
+
+_gitroot="http://git.gnome.org/browse/meld"
+_gitname="meld"
+
+build() {
+    cd "$srcdir"
+    msg "Connecting to GIT server...."
+
+    if [ -d $_gitname ] ; then
+        cd $_gitname && git pull origin
+        msg "The local files are updated."
+    else
+        git clone --depth 1 $_gitroot
+    fi
+
+    msg "GIT checkout done or server timeout"
+    msg "Starting make..."
+
+    #rm -rf "$srcdir/$_gitname-build"
+    #cp -r "$srcdir/$_gitname" "$srcdir/$_gitname-build"
+    cd "$srcdir/$_gitname"
+
+  # use python2 since arch python uses python3
+    sed -i 's/update-/#update-/' Makefile
+    sed -i 's/env python/env python2/' bin/meld
+  # run make
+    make PYTHON=/usr/bin/python2 prefix=/usr
+}
+
+package() {
+    cd "$srcdir/$_gitname"
+    make PYTHON=/usr/bin/python2 prefix=/usr DESTDIR="$pkgdir" install
+}
+
+# vim:syntax=sh
