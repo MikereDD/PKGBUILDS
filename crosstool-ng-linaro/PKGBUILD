@@ -14,7 +14,7 @@ md5sums=('8a50333f415026f573f22e11cccde7dc')
 
 build() {
   cd "$srcdir"/${pkgname}-1.13.1-4.8-${pkgver}
-  ./configure --prefix=/opt/toolchains/crosstool-ng-linaro --with-install=`which install` --with-make=`which make` --with-grep=`which grep` --with-sed=`which sed` --with-bash=`which bash` --bindir=${HOME}/bin
+  ./configure --prefix=/opt/toolchains/crosstool-ng-linaro --with-install=`which install` --with-make=`which make` --with-grep=`which grep` --with-sed=`which sed` --with-bash=`which bash` --bindir=/usr/local/bin --libdir=/usr/local/lib
   make -j1
 }
 
