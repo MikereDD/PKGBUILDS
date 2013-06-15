@@ -1,24 +1,25 @@
+# Contributor:Mike Redd <mredd -at- 0 tue 0 dot com>
 # Maintainer: Mike Redd <mredd -at- 0 tue 0 dot com>
 
 pkgname=crosstool-ng-linaro
-pkgver=20130221
+pkgver=2013.05
 pkgrel=1
 pkgdesc='Crosstool - Linaro Toolchain Binaries'
-arch=('any')
-url='https://launchpad.net/linaro-toolchain-binaries/+download'
+arch=('i686' 'x86_64')
+url='https://launchpad.net/linaro-toolchain-binaries/trunk/2013.05/+download'
 license=(GPL)
 depends=('make' 'gperf' 'wget')
-source=(https://launchpad.net/linaro-toolchain-binaries/trunk/2013.02/+download/$pkgname-1.13.1-4.7-2013.02-01-$pkgver.tar.bz2)
-md5sums=('4b32164d77e6a598416596c3f6820186')
+source=(${url}/${pkgname}-1.13.1-4.8-${pkgver}.tar.bz2)
+md5sums=('8a50333f415026f573f22e11cccde7dc')
 
 build() {
-  cd "$srcdir"/${pkgname}-1.13.1-4.7-2013.02-01-${pkgver}
-  ./configure --prefix=/usr
+  cd "$srcdir"/${pkgname}-1.13.1-4.8-${pkgver}
+  ./configure --prefix=/opt/toolchains/crosstool-ng-linaro --with-install=`which install` --with-make=`which make` --with-grep=`which grep` --with-sed=`which sed` --with-bash=`which bash` --bindir=${HOME}/bin
   make -j1
 }
 
 package() {
-  cd "$srcdir"/${pkgname}-1.13.1-4.7-2013.02-01-${pkgver}
+  cd "$srcdir"/${pkgname}-1.13.1-4.8-${pkgver}
   make DESTDIR="$pkgdir" install
 }
 
