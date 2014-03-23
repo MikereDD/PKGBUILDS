@@ -2,7 +2,7 @@
 
 pkgname=bash-completion-tmux
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc='Bash completion script for the tmux'
 arch=('any')
 url="http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/examples/bash_completion_tmux.sh"
@@ -17,9 +17,9 @@ build() {
  }
 
  package() {
-     install -d $pkgdir/etc/bash_completion.d
+     install -d $pkgdir/usr/share/bash-completion/completions/
      mv 'bash_completion_tmux.sh?format=raw' bash_completion_tmux.sh
-     install -m 0755 bash_completion_tmux.sh $pkgdir/etc/bash_completion.d/tmux
+     install -m 0755 bash_completion_tmux.sh $pkgdir/usr/share/bash-completion/completions/tmux
 }
 
 # vim:syntax=sh

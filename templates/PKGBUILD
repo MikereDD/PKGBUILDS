@@ -1,0 +1,33 @@
+# Maintainer: Somebody <somebody[at]foo[dot]tld>
+pkgname=foo
+pkgver=10.0.2
+pkgrel=2
+pkgdesc="Foo is an example package for this PKGBUILD file."
+url="http://www.foo.tld"
+arch=('x86_64' 'i686')
+license=('GPLv3')
+depends=('php' 'mysql')
+optdepends=('java-runtime')
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+install='foo.install'
+source=("http://www.server.tld/${pkgname}-${pkgver}.tar.gz"
+        "foo.desktop")
+md5sums=('a0afa52d60cea6c0363a2a8cb39a4095'
+         'a0afa52d60cea6c0363a2a8cb39a4095')
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  cmake ./ -DCMAKE_INSTALL_PREFIX=/usr
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+}
+
+# vim:set ts=2 sw=2 et:
