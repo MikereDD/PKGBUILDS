@@ -1,15 +1,9 @@
 # Contributor: Mike Redd <mredd -at- zerotuezero dot com>
 
 pkgname=bash-completion-android
-<<<<<<< HEAD
-pkgver=20140323
-pkgrel=2
-pkgdesc="Android Bash Completion by Matt Brubeck for android, adb, emlulator, fastboot and repo"
-=======
 pkgver=20140122
 pkgrel=2
 pkgdesc='This is a Bash completion script for the android, adb, emulator, and fastboot command-line tools from the Google Android SDK. '
->>>>>>> 3ec34795b19a81d2d6c01a1d120f795056d8e3ad
 arch=('any')
 url="https://github.com/MikereDD/android-completion"
 license=('MIT')
