@@ -4,7 +4,7 @@ pkgname=ttf-geo
 _realname=Geo
 pkgver=2
 pkgrel=1
-pkgdesc="Geo expresses both the directness of some of the 1920s faces and the rather disingenuous consumerist thrust of the 1980s and 1990s descendants of theirs. by: Ben Weiner"
+pkgdesc="Geo expresses both the directness of some of the 1920s faces"
 arch=('any')
 license=('OFL')
 url="http://www.google.com/fonts/specimen/Geo"
@@ -20,6 +20,6 @@ md5sums=('6223adbbeeda62c408690358991570c8'
 build() {
   cd $srcdir
   install -d $pkgdir/usr/share/fonts/TTF/
-  install -m644 *.ttf $startdir/pkg/usr/share/fonts/TTF/ || return 1
+  install -m644 *.ttf $pkgdir/usr/share/fonts/TTF/ || return 1
   install -Dm644 *.txt $pkgdir/usr/share/licenses/$pkgname/LICENSE
 }
