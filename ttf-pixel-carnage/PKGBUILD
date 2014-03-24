@@ -16,5 +16,5 @@ md5sums=('3b68571f31c1aefa2deea913df439284')
 build() {
   cd $srcdir
   install -d $pkgdir/usr/share/fonts/TTF/
-  install -m644 *.ttf $pkgdir/usr/share/fonts/TTF/ || return 1
+  install -m644 *.fon $pkgdir/usr/share/fonts/TTF/ || return 1
 }
