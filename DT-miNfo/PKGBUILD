@@ -1,0 +1,65 @@
+# Contributor: Mike Redd <mredd -at- zerotuezero dot com>
+
+pkgname=minfocreate-git
+_pkgname=minfocreate
+pkgver=20140712
+pkgrel=2.2
+pkgdesc='Simple script to create NFO and HTM files of your video files using mediainfo imdbdump'
+arch=('any')
+url="https://github.com/dumbterminal/DT-miNfo"
+license=('UNKNOWN')
+depends=('mediainfo' 'git')
+makedepends=('curl')
+conflicts=('')
+install=minfocreate.install
+source=()
+md5sums=()
+
+_gitroot="https://github.com/dumbterminal/DT-miNfo.git"
+_gitname="DT-miNfo"
+_buildir="${_gitname}-build"
+
+build() {
+     cd ${srcdir}
+
+     msg 'Connecting to GIT server...'
+
+     if [ -d ${_gitname} ]; then
+          cd ${_gitname} && git pull origin
+          cd ..
+     else
+          git clone ${_gitroot}
+     fi
+
+     msg 'GIT checkout done or server timeout.'
+
+     if [ -d ${_buildir} ]; then
+          msg 'Cleaning previous build...'
+          rm -rf ${_buildir}
+     fi
+
+     git clone ${_gitname} ${_buildir}
+     cd ${_buildir}
+ }
+
+ package() {
+     msg 'Creating package build...'
+     cd $srcdir
+     # dump just license from the readme
+     install -d $pkgdir/usr/bin
+     install -m 0755 DT-miNfo/$_pkgname $pkgdir/usr/bin/$_pkgname
+     install -m 0755 DT-miNfo/imdbdump-nc $pkgdir/usr/bin/imdbdump-nc
+     install -d $pkgdir/usr/share/miNfo/minfohelp
+     install -m 0777 DT-miNfo/minfohelp/pre1.txt $pkgdir/usr/share/miNfo/minfohelp/pre1.txt
+     install -m 0777 DT-miNfo/minfohelp/pre2.txt $pkgdir/usr/share/miNfo/minfohelp/pre2.txt
+     install -m 0777 DT-miNfo/minfohelp/tag.txt $pkgdir/usr/share/miNfo/minfohelp/tag.txt
+     install -d $pkgdir/usr/share/miNfo/wrk
+     install -m 0777 DT-miNfo/wrk/prt1.htm $pkgdir/usr/share/miNfo/wrk/prt1.htm
+     install -m 0777 DT-miNfo/wrk/prt2.htm $pkgdir/usr/share/miNfo/wrk/prt2.htm
+     install -m 0777 DT-miNfo/wrk/prt3.htm $pkgdir/usr/share/miNfo/wrk/prt3.htm
+     install -m 0777 DT-miNfo/wrk/prt4.htm $pkgdir/usr/share/miNfo/wrk/prt4.htm
+     install -d $pkgdir/usr/share/miNfo/nfo
+
+}
+
+# vim:syntax=sh

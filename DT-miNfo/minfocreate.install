@@ -1,0 +1,17 @@
+post_install() {
+    echo ""
+    echo ""
+    echo "Copy the miNfo directory to ~/tmp... "
+    echo "cp -a /usr/share/miNfo $HOME/tmp/miNfo"
+    echo "have fun...."
+    echo ""
+    echo ""
+}
+
+post_upgrade() {
+  post_install $1
+}
+
+post_remove() {
+  post_install $1
+}
