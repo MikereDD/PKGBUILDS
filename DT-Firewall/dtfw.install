@@ -1,0 +1,21 @@
+post_install() {
+    echo ""
+    echo ""
+    echo "Make the changes needed in"
+    echo "/etc/DTfw/dtfw-lists/dtfw_whitelist.lst"
+    echo "/etc/DTfw/dtfw-lists/dtfw_blacklist.lst"
+    echo "/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst"
+    echo ""
+    echo "Then start the firewall script"
+    echo "Example: dtfw start | restart | stop | save"
+    echo ""
+    echo ""
+}
+
+post_upgrade() {
+  post_install $1
+}
+
+post_remove() {
+  post_install $1
+}

@@ -1,0 +1,63 @@
+# Contributor: Mike Redd <mredd -at- zerotuezero dot com>
+
+pkgname=dtfw
+_pkgname=minfocreate
+pkgver=20140712
+pkgrel=1
+pkgdesc='Simple firewall script that uses iptables'
+arch=('any')
+url="https://github.com/dumbterminal/DT-Firewall"
+license=('UNKNOWN')
+depends=('iptables' 'git' 'sshguard')
+makedepends=('curl')
+conflicts=('')
+install=dtfw.install
+source=()
+md5sums=()
+
+_gitroot="https://github.com/dumbterminal/DT-Firewall.git"
+_gitname="DT-Firewall"
+_buildir="${_gitname}-build"
+
+build() {
+     cd ${srcdir}
+
+     msg 'Connecting to GIT server...'
+
+     if [ -d ${_gitname} ]; then
+          cd ${_gitname} && git pull origin
+          cd ..
+     else
+          git clone ${_gitroot}
+     fi
+
+     msg 'GIT checkout done or server timeout.'
+
+     if [ -d ${_buildir} ]; then
+          msg 'Cleaning previous build...'
+          rm -rf ${_buildir}
+     fi
+
+     git clone ${_gitname} ${_buildir}
+     cd ${_buildir}
+ }
+
+ package() {
+     msg 'Creating package build...'
+     cd $srcdir
+     # dump just license from the readme
+     install -d $pkgdir/usr/bin
+     install -m 0755 DT-Firewall/$pkgname $pkgdir/usr/bin/$pkgname
+     install -d $pkgdir/etc/DTfw
+     install -m 0755 DT-Firewall/dtfw_dynamichosts $pkgdir/usr/bin/dtfw_dynamichosts
+     install -d $pkgdir/etc/DTfw/dtfw-list
+     install -m 0777 DT-Firewall/dtfw-list/dtfw_blacklist.lst $pkgdir/etc/DTfw/dtfw-list/dtfw_blacklist.lst
+     install -m 0777 DT-Firewall/dtfw-list/dtfw_blacklist_OUTS.lst $pkgdir/etc/DTfw/dtfw-list/dtfw_blacklist_OUTS.lst
+     install -m 0777 DT-Firewall/dtfw-list/dtfw_whitelist.lst $pkgdir/etc/DTfw/dtfw-list/dtfw_whitelist.lst
+     install -d $pkgdir/etc/DTfw/dtfw_dynamiclists
+     install -m 0777 DT-Firewall/dtfw_dynamiclists/dtfw_dynamic_hosts.lst $pkgdir/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_hosts.lst
+     install -m 0777 DT-Firewall/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst $pkgdir/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst
+
+}
+
+# vim:syntax=sh
