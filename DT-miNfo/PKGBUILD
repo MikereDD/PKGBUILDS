@@ -2,8 +2,8 @@
 
 pkgname=minfocreate-git
 _pkgname=minfocreate
-pkgver=20140712
-pkgrel=2.2
+pkgver=20140804
+pkgrel=3
 pkgdesc='Simple script to create NFO and HTM files of your video files using mediainfo imdbdump'
 arch=('any')
 url="https://github.com/dumbterminal/DT-miNfo"
@@ -12,8 +12,10 @@ depends=('mediainfo' 'git')
 makedepends=('curl')
 conflicts=('')
 install=minfocreate.install
-source=()
-md5sums=()
+source=("git+https://github.com/dumbterminal/DT-miNfo.git")
+
+md5sums=('SKIP')
+sha256sums=('SKIP')
 
 _gitroot="https://github.com/dumbterminal/DT-miNfo.git"
 _gitname="DT-miNfo"
