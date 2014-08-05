@@ -12,7 +12,7 @@ depends=('iptables' 'git' 'sshguard')
 makedepends=('curl')
 conflicts=('')
 install=dtfw.install
-source=()
+source=("git+https://github.com/dumbterminal/DT-Firewall.git")
 
 md5sums=('SKIP')
 sha256sums=('SKIP')
