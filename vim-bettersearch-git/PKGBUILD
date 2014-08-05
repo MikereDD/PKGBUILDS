@@ -1,8 +1,8 @@
 # Contributor: Mike Redd <mredd -at- zerotuezero dot com>
 pkgname=vim-bettersearch-git
 _pkgname=betterSearch.vim
-pkgver=20121014
-pkgrel=1
+pkgver=20140804
+pkgrel=1.2
 pkgdesc="Provide better search functionality by capturing all matched line"
 arch=('any')
 url="http://www.vim.org/scripts/script.php?script_id=4241"
@@ -15,8 +15,10 @@ install='vimdoc.install'
 conflicts=('vim-bettersearch')
 replaces=('vim-bettersearch')
 provides=('vim-bettersearch')
-source=()
-md5sums=()
+source=("git+https://github.com/vim-scripts/betterSearch.vim.git")
+
+md5sums=('SKIP')
+sha256sums=('SKIP')
 
 _gitroot="https://github.com/vim-scripts/betterSearch.vim.git"
 _gitname="betterSearch.vim"

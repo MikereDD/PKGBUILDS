@@ -1,7 +1,7 @@
 # Contributor: Mike Redd <mredd -at- zerotuezero dot com>
 pkgname=vim-easytree-git
-pkgver=20121014
-pkgrel=1
+pkgver=20140804
+pkgrel=1.2
 pkgdesc="easybuffer.vim - is a simple tree file manager for vim, highly inspired by NERDTree"
 arch=('any')
 url="http://www.vim.org/scripts/script.php?script_id=4252"
@@ -14,8 +14,10 @@ install='vimdoc.install'
 conflicts=('vim-easytree')
 replaces=('vim-easytree')
 provides=('vim-easytree')
-source=()
-md5sums=()
+source=("git+https://github.com/vim-scripts/easytree.vim.git")
+
+md5sums=('SKIP')
+sha256sums=('SKIP')
 
 _gitroot="git://github.com/vim-scripts/easytree.vim.git"
 _gitname="easytree.vim"
