@@ -61,6 +61,7 @@ build() {
      install -m 0777 DT-miNfo/wrk/prt3.htm $pkgdir/usr/share/miNfo/wrk/prt3.htm
      install -m 0777 DT-miNfo/wrk/prt4.htm $pkgdir/usr/share/miNfo/wrk/prt4.htm
      install -d $pkgdir/usr/share/miNfo/nfo
+     install -Dm 0644 DT-miNfo/LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
 
 }
 

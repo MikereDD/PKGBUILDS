@@ -59,6 +59,7 @@ build() {
      install -d $pkgdir/etc/DTfw/dtfw_dynamiclists
      install -m 0777 DT-Firewall/dtfw_dynamiclists/dtfw_dynamic_hosts.lst $pkgdir/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_hosts.lst
      install -m 0777 DT-Firewall/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst $pkgdir/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst
+     install -Dm 0644 DT-Firewall/LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
 
 }
 
