@@ -1,4 +1,11 @@
-PKGBUILDS
-=========
+===========
+=PKGBUILDS=
+===========
 
-AUR Arch Linux pkgbuilds I maintain along with some personal builds.
+----------------
+...Arch Linux...
+ AUR PKGBUILD's
+----------------
+
+My personal pkgbuilds I maintain for the AUR
+ along with some I've modified to my likings..
