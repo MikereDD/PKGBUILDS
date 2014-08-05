@@ -2,6 +2,7 @@ post_install() {
     echo ""
     echo ""
     echo "Make the changes needed in"
+    echo "/etc/DTfw/dtfw.config"
     echo "/etc/DTfw/dtfw-lists/dtfw_whitelist.lst"
     echo "/etc/DTfw/dtfw-lists/dtfw_blacklist.lst"
     echo "/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst"

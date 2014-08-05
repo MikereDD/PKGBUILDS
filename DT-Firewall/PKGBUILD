@@ -3,7 +3,7 @@
 pkgname=dtfw-git
 _pkgname=dtfw
 pkgver=20140804
-pkgrel=1
+pkgrel=2
 pkgdesc='Simple firewall script that uses iptables'
 arch=('any')
 url="https://github.com/dumbterminal/DT-Firewall"
