@@ -4,9 +4,9 @@
 pkgname=fortune-mod-entourage
 _pkgname=entourage
 pkgver=1
-pkgrel=2
+pkgrel=3
 pkgdesc="Entourage [HBO] fortune cookie file"
-url="http://dl.dropboxusercontent.com"
+url="http://en.wikiquote.org/wiki/Entourage_(TV_series)"
 arch=('any')
 license=('unknown')
 depends=('fortune-mod')

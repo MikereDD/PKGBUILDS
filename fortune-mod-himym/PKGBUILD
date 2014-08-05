@@ -3,16 +3,16 @@
 
 pkgname=fortune-mod-himym
 _pkgname=himym
-pkgver=0.3
-pkgrel=3
+pkgver=1
+pkgrel=2
 pkgdesc="How I Met Your Mother fortune cookie file"
 url="http://dl.dropbox.com"
 arch=('any')
 license=('unknown')
 depends=('fortune-mod')
 groups=('fortune-mods')
-source=($url/u/14015956/fortunemods/himym/$pkgname-$pkgver.tar.xz)
-md5sums=('0a1e99d5ee7404c3fdba9eb2e1fa3ee4')
+source=($_pkgname)
+md5sums=('a5257cdf0ceb7589d334aa06dcf000ca')
 
 build() {
   cd "$srcdir"
