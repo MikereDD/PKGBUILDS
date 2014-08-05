@@ -52,10 +52,10 @@ build() {
      install -m 0755 DT-Firewall/$_pkgname $pkgdir/usr/bin/$_pkgname
      install -d $pkgdir/etc/DTfw
      install -m 0755 DT-Firewall/dtfw_dynamichosts $pkgdir/usr/bin/dtfw_dynamichosts
-     install -d $pkgdir/etc/DTfw/dtfw-list
-     install -m 0777 DT-Firewall/dtfw-list/dtfw_blacklist.lst $pkgdir/etc/DTfw/dtfw-list/dtfw_blacklist.lst
-     install -m 0777 DT-Firewall/dtfw-list/dtfw_blacklist_OUTS.lst $pkgdir/etc/DTfw/dtfw-list/dtfw_blacklist_OUTS.lst
-     install -m 0777 DT-Firewall/dtfw-list/dtfw_whitelist.lst $pkgdir/etc/DTfw/dtfw-list/dtfw_whitelist.lst
+     install -d $pkgdir/etc/DTfw/dtfw-lists
+     install -m 0777 DT-Firewall/dtfw-lists/dtfw_blacklist.lst $pkgdir/etc/DTfw/dtfw-lists/dtfw_blacklist.lst
+     install -m 0777 DT-Firewall/dtfw-lists/dtfw_blacklist_OUTS.lst $pkgdir/etc/DTfw/dtfw-lists/dtfw_blacklist_OUTS.lst
+     install -m 0777 DT-Firewall/dtfw-lists/dtfw_whitelist.lst $pkgdir/etc/DTfw/dtfw-lists/dtfw_whitelist.lst
      install -d $pkgdir/etc/DTfw/dtfw_dynamiclists
      install -m 0777 DT-Firewall/dtfw_dynamiclists/dtfw_dynamic_hosts.lst $pkgdir/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_hosts.lst
      install -m 0777 DT-Firewall/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst $pkgdir/etc/DTfw/dtfw_dynamiclists/dtfw_dynamic_whitelist.lst
