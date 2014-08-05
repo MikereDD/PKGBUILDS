@@ -1,8 +1,8 @@
 # Contributor: Mike Redd <mredd -at- zerotuezero dot com>
 
-pkgname=dtfw
-_pkgname=minfocreate
-pkgver=20140712
+pkgname=dtfw-git
+_pkgname=dtfw
+pkgver=20140804
 pkgrel=1
 pkgdesc='Simple firewall script that uses iptables'
 arch=('any')
@@ -13,7 +13,9 @@ makedepends=('curl')
 conflicts=('')
 install=dtfw.install
 source=()
-md5sums=()
+
+md5sums=('SKIP')
+sha256sums=('SKIP')
 
 _gitroot="https://github.com/dumbterminal/DT-Firewall.git"
 _gitname="DT-Firewall"
@@ -47,7 +49,7 @@ build() {
      cd $srcdir
      # dump just license from the readme
      install -d $pkgdir/usr/bin
-     install -m 0755 DT-Firewall/$pkgname $pkgdir/usr/bin/$pkgname
+     install -m 0755 DT-Firewall/$_pkgname $pkgdir/usr/bin/$_pkgname
      install -d $pkgdir/etc/DTfw
      install -m 0755 DT-Firewall/dtfw_dynamichosts $pkgdir/usr/bin/dtfw_dynamichosts
      install -d $pkgdir/etc/DTfw/dtfw-list
