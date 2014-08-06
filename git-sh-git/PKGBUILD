@@ -39,7 +39,7 @@ package() {
      msg "Creating package build..."
      install -d $pkgdir/usr/bin/
      install -d $pkgdir/etc/
-     install -d $pkgdir/usr/share/license/git-sh-git/
+     install -d $pkgdir/usr/share/licenses/git-sh-git/
      install -d $pkgdir/usr/share/git-sh-git/
      install -m 0755 git-sh/git-sh $pkgdir/usr/bin/git-sh
      install -Dm644 git-sh/gitshrc-example.bash $pkgdir/etc/gitshrc

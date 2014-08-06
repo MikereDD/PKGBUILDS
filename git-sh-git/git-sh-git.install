@@ -12,15 +12,9 @@ echo "    $ git config color.sh auto"
 echo ""
 echo " Copy /etc/gitshrc to ~/.gitshrc"
 echo ""
-echo "The `help` command shows git's help output followed by a list of custom"
+echo "The help command shows git's help output followed by a list of custom"
 echo "aliases from your ~/.gitshrc file:"
 echo ""
 echo "    master!some-git-repo> help"
 echo ""
-}
-
-post_upgrade() {
-}
-
-post_remove() {
 }
