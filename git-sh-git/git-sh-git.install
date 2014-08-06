@@ -1,28 +1,26 @@
 post_install() {
-echo "If you'd like to be able to run `git sh` instead of `git-sh`, use"
-echo "the following to add a command alias in `~/.gitconfig`:"
+echo "If you'd like to be able to run git sh instead of git-sh use"
+echo "the following to add a command alias in ~/.gitconfig:"
 echo ""
 echo "    $ git-sh --configure"
 echo "    $ git sh"
 echo ""
 echo "The git-sh prompt supports ANSI color but is disabled by default. To"
-echo "enable, set the `color.sh` config value to `auto`:"
+echo "enable, set the color.sh config value to auto:"
 echo ""
 echo "    $ git config color.sh auto"
 echo ""
 echo " Copy /etc/gitshrc to ~/.gitshrc"
 echo ""
 echo "The `help` command shows git's help output followed by a list of custom"
-echo "aliases from your `~/.gitshrc` file:"
+echo "aliases from your ~/.gitshrc file:"
 echo ""
 echo "    master!some-git-repo> help"
 echo ""
 }
 
 post_upgrade() {
-  post_install $1
 }
 
 post_remove() {
-  post_install $1
 }
