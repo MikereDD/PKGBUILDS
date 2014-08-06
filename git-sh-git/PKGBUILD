@@ -1,0 +1,48 @@
+# Contributor: Mike Redd <mredd -at- 0tue0 dot com>
+pkgname=git-sh-git
+pkgver=20140806
+pkgrel=1
+pkgdesc="A customized bash shell suitable for git work."
+arch=(any)
+url="http://github.com/MikereDD/git-sh"
+license=('GPL')
+depends=(git)
+source=("git+https://github.com/MikereDD/git-sh.git")
+install="git-sh-git.install"
+
+md5sums=('SKIP')
+sha256sums=('SKIP')
+
+_gitroot="git://github.com/MikereDD/git-sh.git"
+_gitname="git-sh"
+_buildir="${_gitname}-build"
+
+build() {
+  cd $srcdir
+
+  msg "Connecting to GIT server...."
+
+  if [ -d $srcdir/$_gitname ] ; then
+    cd $_gitname && git pull origin
+    msg "The local files are updated."
+  else
+    git clone $_gitroot
+  fi
+
+  msg "GIT checkout done or server timeout"
+
+  cd "$srcdir/$_gitname"
+  make || return 1
+}
+package() {
+     cd $srcdir
+     msg "Creating package build..."
+     install -d $pkgdir/usr/bin/
+     install -d $pkgdir/etc/
+     install -d $pkgdir/usr/share/license/git-sh-git/
+     install -d $pkgdir/usr/share/git-sh-git/
+     install -m 0755 git-sh/git-sh $pkgdir/usr/bin/git-sh
+     install -Dm644 git-sh/gitshrc-example.bash $pkgdir/etc/gitshrc
+     install -Dm644 git-sh/COPYING  $pkgdir/usr/share/licenses/$pkgname/LICENSE
+     install -Dm644 git-sh/README.markdown $pkgdir/usr/share/$pkgname/README
+}
