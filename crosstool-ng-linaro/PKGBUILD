@@ -2,24 +2,30 @@
 # Maintainer: Mike Redd <mredd -at- 0 tue 0 dot com>
 
 pkgname=crosstool-ng-linaro
-pkgver=2013.05
+pkgver=2689
 pkgrel=1
 pkgdesc='Crosstool - Linaro Toolchain Binaries'
 arch=('i686' 'x86_64')
-url='https://launchpad.net/linaro-toolchain-binaries/trunk/2013.05/+download'
+url='https://code.launchpad.net/~linaro-toolchain-dev/crosstool-ng/linaro'
 license=(GPL)
 depends=('make' 'gperf' 'wget')
-source=(${url}/${pkgname}-1.13.1-4.8-${pkgver}.tar.bz2)
-md5sums=('8a50333f415026f573f22e11cccde7dc')
+source=(http://bazaar.launchpad.net/~linaro-toolchain-dev/crosstool-ng/linaro/tarball/2689?start_revid=2689)
+
+sha512sums=('1e891894015593357b0d2229285176acdfd14e81bb192725c44af4bfba9a55c9cca4429f1e72105d6cbe93325f212944cdf3c8b9c9519f807b0f94504bee757f')
 
 build() {
-  cd "$srcdir"/${pkgname}-1.13.1-4.8-${pkgver}
-  ./configure --prefix=/usr --with-install=`which install` --with-make=`which make` --with-grep=`which grep` --with-sed=`which sed` --with-bash=`which bash`
+  cd "$srcdir"/\~linaro-toolchain-dev/crosstool-ng/linaro/
+  ./configure --prefix=/usr \
+      --with-install=`which install` \
+      --with-make=`which make` \
+      --with-grep=`which grep` \
+      --with-sed=`which sed` \
+      --with-bash=`which bash`
   make -j1
 }
 
 package() {
-  cd "$srcdir"/${pkgname}-1.13.1-4.8-${pkgver}
+  cd "$srcdir"/\~linaro-toolchain-dev/crosstool-ng/linaro/
   make DESTDIR="$pkgdir" install
 }
 
