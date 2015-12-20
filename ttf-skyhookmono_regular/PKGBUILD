@@ -15,7 +15,7 @@ source=($_url)
 
 md5sums=('ce781d2e59f7b949415eee54961af5b4')
 
-build() {
+package() {
   cd $srcdir
   install -d $pkgdir/usr/share/fonts/TTF/
   install -m644 *.ttf $pkgdir/usr/share/fonts/TTF/ || return 1

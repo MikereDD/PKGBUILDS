@@ -1,0 +1,20 @@
+# Maintainer: Mike Redd <mredd@0tue0.com>
+# Contributor: Mike Redd <mredd@0tue0.com>
+pkgname=ttf-menlo
+pkgver=1
+pkgrel=1
+pkgdesc="Menlo is a monospaced sans-serif typeface designed by Jim Lyles"
+arch=('any')
+license=('custom:free')
+url="https://raw.githubusercontent.com/hbin/top-programming-fonts/master/Menlo-Regular.ttf"
+depends=('fontconfig' 'xorg-fonts-encodings' 'xorg-font-utils')
+install=ttf.install
+source=("$url")
+
+md5sums=('9f94dc20bb2a09c15241d3a880b7ad01')
+
+package() {
+  cd $srcdir
+  install -d $pkgdir/usr/share/fonts/TTF
+  install -m644 *.ttf $pkgdir/usr/share/fonts/TTF || return 1
+}

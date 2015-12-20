@@ -16,7 +16,7 @@ source=("http://tenbytwenty.com/wp-content/uploads/2013/03/akashi1.zip"
 md5sums=('ca2e4a7cda88d13125e9925efa678540'
          '95ac5ed4027706b1cf6e1a7667c31bb4')
 
-build() {
+package() {
   cd $srcdir
   install -d $pkgdir/usr/share/fonts/TTF/
   install -m644 *.ttf $pkgdir/usr/share/fonts/TTF/ || return 1

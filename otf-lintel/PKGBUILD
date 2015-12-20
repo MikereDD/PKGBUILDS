@@ -16,7 +16,7 @@ source=('http://www.thenorthernblock.co.uk/download/4fe1de01-1c4c-4722-b08c-742d
 md5sums=('52641d901385c2e675038a5856aee8ad'
          '8aeea1aa946dc4cd9dd809d8a30ecec3')
 
-build() {
+package() {
   mv "4fe1ddd1-3d70-4fe2-92f7-73fad1768ca6" "${_pkgname}_Regular.otf"
   mv "4fe1de01-1c4c-4722-b08c-742dd1768ca6" "${_pkgname}_Italic.otf"
   cd $srcdir

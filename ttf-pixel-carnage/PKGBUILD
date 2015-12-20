@@ -13,7 +13,7 @@ source=("http://files.qfonts.net/fonts/pixel_carnage_mono_.zip")
 
 md5sums=('3b68571f31c1aefa2deea913df439284')
 
-build() {
+package() {
   cd $srcdir
   install -d $pkgdir/usr/share/fonts/TTF/
   install -m644 *.fon $pkgdir/usr/share/fonts/TTF/ || return 1

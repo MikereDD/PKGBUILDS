@@ -15,7 +15,7 @@ source=("$url/$_realname.zip" "http://www.greyscale.net/basic/index.html")
 md5sums=('f0ea410d0130e969d5cc79e9e951b0e5'
          '9d4fa006116eff349a2ca8d5c866a2c0')
 
-build() {
+package() {
   cd $srcdir
   install -d $pkgdir/usr/share/fonts/TTF/
   install -m644 GreyscaleBasic/*.ttf $pkgdir/usr/share/fonts/TTF/ || return 1
