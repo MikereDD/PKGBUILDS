@@ -10,12 +10,12 @@ arch=('any')
 license=('unknown')
 depends=('fortune-mod')
 groups=('fortune-mods')
-source=(archer)
+source=(rickandmorty)
 md5sums=('c41fd25269fc5c54d92ce3217a1e4e6e')
 
 build() {
   cd "$srcdir"
-  strfile archer archer.dat
+  strfile rickandmorty rickandmorty.dat
 }
 
 package () {
