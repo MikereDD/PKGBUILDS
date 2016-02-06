@@ -1,0 +1,24 @@
+# Maintainer: Mike Redd
+# Contributor: Mike Redd <mredd@0tue0.com>
+
+pkgname=fortune-mod-rickandmorty
+pkgver=1
+pkgrel=1
+pkgdesc="Rick and Morty CC fortune cookie file"
+url="https://en.wikiquote.org/wiki/Rick_and_Morty"
+arch=('any')
+license=('unknown')
+depends=('fortune-mod')
+groups=('fortune-mods')
+source=(archer)
+md5sums=('c41fd25269fc5c54d92ce3217a1e4e6e')
+
+build() {
+  cd "$srcdir"
+  strfile archer archer.dat
+}
+
+package () {
+  install -D -m644 rickandmorty $pkgdir/usr/share/fortune/rickandmorty
+  install -D -m644 rickandmorty.dat $pkgdir/usr/share/fortune/rickandmorty.dat
+}
