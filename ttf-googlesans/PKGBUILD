@@ -1,0 +1,20 @@
+# Maintainer: Mike Redd <mredd@0tue0.com>
+# Contributor: Mike Redd <mredd@0tue0.com>
+pkgname=ttf-google-sans
+pkgver=1
+pkgrel=1
+pkgdesc="True Type Google Sans Font"
+arch=('any')
+license=('custom:SIL Open Font License')
+url="https://fonts.google.com/specimen/Open+Sans"
+depends=('fontconfig' 'xorg-mkfontdir' 'xorg-mkfontscale' 'xorg-fonts-encodings' 'xorg-font-utils')
+install=ttf.install
+source=("https://raw.githubusercontent.com/DirtyUnicorns/android_vendor_du/o8x/themes/Fonts/assets/fonts/Google_Sans.zip")
+
+sha512sums=('SKIP')
+
+package() {
+  cd $srcdir
+  install -d $pkgdir/usr/share/fonts/TTF
+  install -m644 *.ttf $pkgdir/usr/share/fonts/TTF || return 1
+}
